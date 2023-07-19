@@ -82,7 +82,6 @@ h6 {
   height: 90px;
   transition: all 0.5s;
   z-index: 997;
-  transition: all 0.5s;
   background: #fff;
   box-shadow: 0 4px 10px -3px hsla(0, 0%, 75%, 0.5);
 }
