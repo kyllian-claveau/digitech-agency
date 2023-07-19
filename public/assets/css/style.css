@@ -1386,6 +1386,24 @@ section {
   display: none;
 }
 
+.faq .in-faq ul{
+  list-style-type:none;
+  padding: 0;
+  margin: 0;
+}
+.faq .in-faq li{
+  list-style-type: none;
+  border-bottom:none;
+  padding-left: 16px;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+.faq .in-faq li::before{
+  content: "-";
+  padding-right: 8px;
+  color: black;
+}
+
 /*--------------------------------------------------------------
 # Contact
 --------------------------------------------------------------*/
