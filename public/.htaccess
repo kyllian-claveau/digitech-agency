@@ -8,9 +8,9 @@ RewriteRule 		/.* - [E=HTTP_AUTHORIZATION:%1]
 
 <VirtualHost *:80>
     ServerName digitech-agency.fr
-    DocumentRoot /home/digitechagency/public_html/public
+    DocumentRoot /home/digitechagency/public_html
 
-    <Directory /home/digitechagency/public_html/public>
+    <Directory /home/digitechagency/public_html>
         AllowOverride All
         Require all granted
     </Directory>
