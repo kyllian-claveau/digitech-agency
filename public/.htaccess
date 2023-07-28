@@ -4,9 +4,7 @@
     RewriteRule ^(.*)$ index.php [QSA,L]
 RewriteCond 		%{HTTP:Authorization} ^(.*)$ [NC]
 RewriteRule 		/.* - [E=HTTP_AUTHORIZATION:%1]
-</IfModule>
 
-# Disable directory browsing
 Options -Indexes
 
 # Redirect digitech-agency.fr/public to digitech-agency.fr
@@ -16,3 +14,7 @@ RewriteRule ^public(/|$) / [R=301,L]
 # Block access to all directories except "public"
 RewriteCond %{REQUEST_URI} !^/public(/|$) [NC]
 RewriteRule ^ - [F]
+
+</IfModule>
+
+# Disable directory browsing
