@@ -5,22 +5,3 @@
 RewriteCond 		%{HTTP:Authorization} ^(.*)$ [NC]
 RewriteRule 		/.* - [E=HTTP_AUTHORIZATION:%1]
 </IfModule>
-
-<VirtualHost *:80>
-    ServerName digitech-agency.fr
-    DocumentRoot /home/digitechagency/public_html
-
-    <Directory /home/digitechagency/public_html>
-        AllowOverride All
-        Options FollowSymLinks
-        Order Allow,Deny
-        Allow from All
-        Require all granted
-    </Directory>
-
-    ErrorLog /var/log/httpd/digitech-agency_error.log
-    CustomLog /var/log/httpd/digitech-agency_access.log combined
-</VirtualHost>
-
-
-
