@@ -5,3 +5,14 @@
 RewriteCond 		%{HTTP:Authorization} ^(.*)$ [NC]
 RewriteRule 		/.* - [E=HTTP_AUTHORIZATION:%1]
 </IfModule>
+
+# Disable directory browsing
+Options -Indexes
+
+# Redirect digitech-agency.fr/public to digitech-agency.fr
+RewriteEngine On
+RewriteRule ^public(/|$) / [R=301,L]
+
+# Block access to all directories except "public"
+RewriteCond %{REQUEST_URI} !^/public(/|$) [NC]
+RewriteRule ^ - [F]
