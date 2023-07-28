@@ -1,24 +1,13 @@
-<IfModule mod_rewrite.c>
-    RewriteEngine On
-    RewriteCond %{REQUEST_FILENAME} !-f
-    RewriteRule ^(.*)$ index.php [QSA,L]
-RewriteCond 		%{HTTP:Authorization} ^(.*)$ [NC]
-RewriteRule 		/.* - [E=HTTP_AUTHORIZATION:%1]
-</IfModule>
-
 <VirtualHost *:80>
     ServerName digitech-agency.fr
-    DocumentRoot /home/digitechagency/public_html
+    DocumentRoot /home/digitechagency/public_html/public
 
-    <Directory /home/digitechagency/public_html>
+    <Directory /home/digitechagency/public_html/public>
         AllowOverride All
-        Options FollowSymLinks
-        Order Allow,Deny
-        Allow from All
         Require all granted
     </Directory>
 
-    ErrorLog /var/log/httpd/digitech-agency_error.log
-    CustomLog /var/log/httpd/digitech-agency_access.log combined
+    ErrorLog ${APACHE_LOG_DIR}/error.log
+    CustomLog ${APACHE_LOG_DIR}/access.log combined
 </VirtualHost>
 
