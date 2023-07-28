@@ -11,6 +11,13 @@ RewriteRule 		/.* - [E=HTTP_AUTHORIZATION:%1]
     DocumentRoot /home/digitechagency/public_html/public
 
     <Directory /home/digitechagency/public_html/public>
+            AllowOverride All
+            Options FollowSymLinks
+            Order Allow,Deny
+            Allow from All
+        </Directory>
+
+    <Directory /home/digitechagency/public_html>
         AllowOverride All
         Options FollowSymLinks
         Order Allow,Deny
