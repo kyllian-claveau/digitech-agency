@@ -22,6 +22,3 @@ RewriteRule 		/.* - [E=HTTP_AUTHORIZATION:%1]
     CustomLog /var/log/httpd/digitech-agency_access.log combined
 </VirtualHost>
 
-RewriteEngine On
-RewriteRule ^$ public/ [L]
-RewriteRule (.*) public/$1 [L]
