@@ -12,10 +12,15 @@ RewriteRule 		/.* - [E=HTTP_AUTHORIZATION:%1]
 
     <Directory /home/digitechagency/public_html>
         AllowOverride All
+        Options FollowSymLinks
+        Order Allow,Deny
+        Allow from All
         Require all granted
     </Directory>
 
-    ErrorLog ${APACHE_LOG_DIR}/error.log
-    CustomLog ${APACHE_LOG_DIR}/access.log combined
+    ErrorLog /var/log/httpd/digitech-agency_error.log
+    CustomLog /var/log/httpd/digitech-agency_access.log combined
 </VirtualHost>
+
+
 
