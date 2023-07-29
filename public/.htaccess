@@ -1,11 +1,8 @@
-RewriteEngine On
-
-# If the request is not for the "public" directory
+RewriteEngine on
+RewriteCond %{HTTP_HOST} ^(www.)?digitech-agency.fr$
 RewriteCond %{REQUEST_URI} !^/public/
-
-# If the requested file or directory does not exist
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
-
-# Rewrite to the "public" directory
-RewriteRule ^(.*)$ /public/$1 [L]
+RewriteRule ^(.*)$ /public/$1
+RewriteCond %{HTTP_HOST} ^(www.)?digitech-agency.fr$
+RewriteRule ^(/)?$ public/index.php [L]
