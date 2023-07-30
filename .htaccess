@@ -1,2 +1,19 @@
-Allow from All
-DirectoryIndex /public/index.php
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteBase /
+
+    # Enable the following line if you want to restrict access to the directory
+    # to specific IP addresses.
+    # Allow from 192.168.1.100 192.168.1.200
+
+    # Set the default directory index to /public/index.php
+    DirectoryIndex /public/index.php
+
+    # Rewrite all requests to index.php, preserving query strings (QSA) and stop processing (L)
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteRule ^(.*)$ /index.php [QSA,L]
+
+    # Handle HTTP Authorization header for PHP-FPM or FastCGI servers
+    RewriteCond %{HTTP:Authorization} ^(.*)$ [NC]
+    RewriteRule ^.* - [E=HTTP_AUTHORIZATION:%1]
+</IfModule>
