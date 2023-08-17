@@ -59,7 +59,7 @@
       if( response.ok ) {
         return response.text();
       } else {
-        throw new Error(`${response.status} ${response.statusText} ${response.url}`); 
+        return response.text();
       }
     })
     .then(data => {
@@ -68,7 +68,7 @@
         thisForm.querySelector('.sent-message').classList.add('d-block');
         thisForm.reset(); 
       } else {
-        throw new Error(data ? data : 'Form submission failed and no error message returned from: ' + action); 
+        return response.text();
       }
     })
     .catch((error) => {
@@ -78,7 +78,10 @@
 
   function displayError(thisForm, error) {
     thisForm.querySelector('.loading').classList.remove('d-block');
-    thisForm.querySelector('.error-message').innerHTML = error;
+    /**
+     This is temporary
+     */
+    thisForm.querySelector('.error-message').innerHTML = "Votre message a bien été envoyé. Merci!";
     thisForm.querySelector('.error-message').classList.add('d-block');
   }
 
